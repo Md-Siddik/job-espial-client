@@ -11,7 +11,8 @@ const Card = () => {
                     <div className="card-body">
                         <div className="w-full text-left">
                             <h2 className="card-title text-2xl pb-4 flex items-start">Graphic Designer</h2>
-                            <p className="pb-2">Job Category : <span className="bg-green-500 text-white px-2 rounded-xl">Remote Job</span></p>
+                            <p>Posted By : Md Mahabub</p>
+                            <p className="py-2">Job Category : <span className="bg-green-500 text-white px-2 rounded-xl">Remote Job</span></p>
                             <div className="w-full flex justify-between text-lg py-2">
                                 <span>Posting Date</span>:<span>2024-05-04</span>
                             </div>
@@ -20,7 +21,7 @@ const Card = () => {
                             </div>
                         </div>
                         <div className="text-left">
-                            <p>Seeking skilled software engineer to join development team. Apply by June 11th.</p>
+                            <p>Applicants Number : 06</p>
                         </div>
                         <div className="w-full text-xl font-bold">
                             <span>Salary $50,000-$70,000</span>

@@ -10,6 +10,7 @@ import ErrorPage from './ErrorPage/ErrorPage.jsx';
 import AppliedJobs from './AppliedJobs/AppliedJobs.jsx';
 import AddJobs from './AddJobs/AddJobs.jsx';
 import MyJobs from './MyJobs/MyJobs.jsx';
+import Blogs from './Blogs/Blogs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/myJobs',
         element: <MyJobs></MyJobs>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>
       }
     ]
   },

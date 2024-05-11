@@ -14,21 +14,23 @@ const JobTabs = () => {
                     <Tab>All Jobs</Tab>
                 </TabList>
 
-                <TabPanel>
-                    <Card></Card>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 2</h2>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 3</h2>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 4</h2>
-                </TabPanel>
-                <TabPanel>
-                    <h2>All Jobs</h2>
-                </TabPanel>
+                <div className='py-14'>
+                    <TabPanel>
+                        <Card></Card>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 2</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 3</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>Any content 4</h2>
+                    </TabPanel>
+                    <TabPanel>
+                        <h2>All Jobs</h2>
+                    </TabPanel>
+                </div>
             </Tabs>
         </div>
     );
