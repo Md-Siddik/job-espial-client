@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const AllJobs = () => {
     return (
@@ -27,7 +28,9 @@ const AllJobs = () => {
                     <td>2024-06-11</td>
                     <td>$80,000 - $100,000</td>
                     <td>
-                        <button className="btn">View Details</button>
+                        <Link to={'/jobDetails'}>
+                            <button className="btn">View Details</button>
+                        </Link>
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +39,9 @@ const AllJobs = () => {
                     <td>2024-06-11</td>
                     <td>$80,000 - $100,000</td>
                     <td>
-                        <button className="btn">View Details</button>
+                        <Link to={'/jobDetails'}>
+                            <button className="btn">View Details</button>
+                        </Link>
                     </td>
                 </tr>
             </table>

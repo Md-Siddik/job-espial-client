@@ -11,6 +11,7 @@ import AppliedJobs from './AppliedJobs/AppliedJobs.jsx';
 import AddJobs from './AddJobs/AddJobs.jsx';
 import MyJobs from './MyJobs/MyJobs.jsx';
 import Blogs from './Blogs/Blogs.jsx';
+import JobDetails from './JobDetails/JobDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/blogs',
         element: <Blogs></Blogs>
+      },
+      {
+        path: '/jobDetails',
+        element: <JobDetails></JobDetails>
       }
     ]
   },
