@@ -4,35 +4,44 @@ const MyJobs = () => {
 
     return (
         <div>
-            <div className="flex border-[1px]">
-                <div className="w-[45%] max-h-[250px]">
-                    <div className="w-full h-full flex lists-center justify-center">
-                        <img className="w-full h-full" src={image} alt="Avatar Tailwind CSS Component" />
-                    </div>
-                </div>
-                <div className="w-[55%]">
-                    <div className="p-8">
-                        <h1 className="text-2xl font-bold">{item_name}</h1>
-                        <div className="flex gap-16 text-xl my-4">
-                            <p>{stockStatus}</p>
-                            <p>Customization : </p>
-                        </div>
-                        <div className="flex gap-48 pb-4">
-                            <h1 className="text-2xl font-bold">$50000</h1>
-                            <p className="text-2xl">/5</p>
-                        </div>
-                        <div className="flex lg:gap-8">
-                            <Link to={`/update`}>
-                                <button className="btn btn-primary text-xl">Update</button>
-                            </Link>
-                            <button className="btn btn-error text-xl">Delete</button>
-                            <Link to={`/artCraft`}>
-                                <button className="btn btn-success text-xl">Details</button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <table className="w-full my-20">
+                <tr className="text-left text-xl">
+                    <th>Job Title</th>
+                    <th>Job Posting Date</th>
+                    <th>Application Deadline</th>
+                    <th>Salary Range</th>
+                </tr>
+                <tr>
+                    <td>Software Engineer</td>
+                    <td>2024-05-11</td>
+                    <td>2024-06-11</td>
+                    <td>$80,000 - $100,000</td>
+                    <td className="flex gap-2 py-2">
+                        <Link to={'/jobDetails'}>
+                            <button className="btn btn-accent">View Details</button>
+                        </Link>
+                        <Link to={'/updateJobs'}>
+                            <button className="btn btn-info">Update</button>
+                        </Link>
+                        <button className="btn btn-error">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Software Engineer</td>
+                    <td>2024-05-11</td>
+                    <td>2024-06-11</td>
+                    <td>$80,000 - $100,000</td>
+                    <td className="flex gap-2">
+                        <Link to={'/jobDetails'}>
+                            <button className="btn btn-accent">View Details</button>
+                        </Link>
+                        <Link to={'/updateJobs'}>
+                            <button className="btn btn-info">Update</button>
+                        </Link>
+                        <button className="btn btn-error">Delete</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     );
 };

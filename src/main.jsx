@@ -12,6 +12,7 @@ import AddJobs from './AddJobs/AddJobs.jsx';
 import MyJobs from './MyJobs/MyJobs.jsx';
 import Blogs from './Blogs/Blogs.jsx';
 import JobDetails from './JobDetails/JobDetails.jsx';
+import UpdateJobs from './UpdateJobs/UpdateJobs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,13 @@ const router = createBrowserRouter([
       {
         path: '/jobDetails',
         element: <JobDetails></JobDetails>
+      },
+      {
+        path: '/updateJobs',
+        element: <UpdateJobs></UpdateJobs>
+      },
+      {
+        path: '/login',
       }
     ]
   },
