@@ -1,0 +1,92 @@
+[
+    {
+        "picture_url": "https://example.com/picture1.jpg",
+        "job_title": "Software Engineer",
+        "job_category": "On-site Job",
+        "salary_range": "$80,000 - $100,000",
+        "job_description": "Seeking skilled software engineer to join development team. Apply by June 11th.",
+        "job_posting_date": "2024-05-11",
+        "application_deadline": "2024-06-11",
+        "job_applicants_number": 50
+    },
+    {
+        "picture_url": "https://example.com/picture2.jpg",
+        "job_title": "Graphic Designer",
+        "job_category": "Remote Job",
+        "salary_range": "$50,000 - $70,000",
+        "job_description": "Talented graphic designer wanted to create engaging graphics. Apply by June 10th.",
+        "job_posting_date": "2024-05-10",
+        "application_deadline": "2024-06-10",
+        "job_applicants_number": 30
+    },
+    {
+        "picture_url": "https://example.com/picture3.jpg",
+        "job_title": "Marketing Manager",
+        "job_category": "Hybrid",
+        "salary_range": "$70,000 - $90,000",
+        "job_description": "Experienced marketing manager needed to lead our team. Apply by June 9th.",
+        "job_posting_date": "2024-05-09",
+        "application_deadline": "2024-06-09",
+        "job_applicants_number": 45
+    },
+    {
+        "picture_url": "https://example.com/picture4.jpg",
+        "job_title": "Customer Service Representative",
+        "job_category": "Part-time",
+        "salary_range": "$15 - $20 per hour",
+        "job_description": "Hiring part-time customer service representatives. Apply by June 8th.",
+        "job_posting_date": "2024-05-08",
+        "application_deadline": "2024-06-08",
+        "job_applicants_number": 20
+    },
+    {
+        "picture_url": "https://example.com/picture5.jpg",
+        "job_title": "Data Analyst",
+        "job_category": "Remote",
+        "salary_range": "$60,000 - $80,000",
+        "job_description": "Looking for a data analyst to provide insights and analysis. Apply by June 7th.",
+        "job_posting_date": "2024-05-07",
+        "application_deadline": "2024-06-07",
+        "job_applicants_number": 25
+    },
+    {
+        "picture_url": "https://example.com/picture6.jpg",
+        "job_title": "Sales Manager",
+        "job_category": "On-site",
+        "salary_range": "$90,000 - $120,000",
+        "job_description": "Seeking dynamic sales manager to lead our team. Apply by June 6th.",
+        "job_posting_date": "2024-05-06",
+        "application_deadline": "2024-06-06",
+        "job_applicants_number": 35
+    },
+    {
+        "picture_url": "https://example.com/picture7.jpg",
+        "job_title": "Content Writer",
+        "job_category": "Remote",
+        "salary_range": "$40,000 - $60,000",
+        "job_description": "Creative content writer wanted to produce compelling content. Apply by June 5th.",
+        "job_posting_date": "2024-05-05",
+        "application_deadline": "2024-06-05",
+        "job_applicants_number": 15
+    },
+    {
+        "picture_url": "https://example.com/picture8.jpg",
+        "job_title": "Human Resources Coordinator",
+        "job_category": "Hybrid",
+        "salary_range": "$50,000 - $70,000",
+        "job_description": "HR coordinator needed to support our team. Apply by June 4th.",
+        "job_posting_date": "2024-05-04",
+        "application_deadline": "2024-06-04",
+        "job_applicants_number": 22
+    },
+    {
+        "picture_url": "https://example.com/picture9.jpg",
+        "job_title": "Quality Assurance Tester",
+        "job_category": "On-site",
+        "salary_range": "$70,000 - $90,000",
+        "job_description": "Seeking QA tester to ensure product quality. Apply by June 3rd.",
+        "job_posting_date": "2024-05-03",
+        "application_deadline": "2024-06-03",
+        "job_applicants_number": 18
+    }
+]

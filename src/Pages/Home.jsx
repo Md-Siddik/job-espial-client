@@ -1,8 +1,11 @@
+import Banner from "../Banner/Banner";
+import JobTabs from "../JobTabs/JobTabs";
 
 const Home = () => {
     return (
         <div>
-            <h1 className="text-4xl">This is Home page</h1>
+            <Banner></Banner>
+            <JobTabs></JobTabs>
         </div>
     );
 };
