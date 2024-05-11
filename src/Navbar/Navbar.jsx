@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -40,7 +40,9 @@ const Navbar = () => {
                             //     }
                             // </div>
                         }
-                        <button className="btn btn-outline">Login</button>
+                        <Link to={'/login'}>
+                            <button className="btn btn-outline">Login</button>
+                        </Link>
                         {
                             // user ?
                             //     <button onClick={handleSignOut} className="btn lg:block hidden">Log Out</button>
@@ -70,7 +72,9 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[999] p-2 shadow bg-base-100 rounded-box w-[120px]">
                         {navLinks}
-                        <button className="btn">Login</button>
+                        <Link to={'/login'}>
+                            <button className="btn">Login</button>
+                        </Link>
                         {
                             // user ?
                             //     <button onClick={handleSignOut} className="btn">Log Out</button>
