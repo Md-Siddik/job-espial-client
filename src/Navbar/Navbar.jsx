@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -25,31 +35,23 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end flex gap-4">
 
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        {
+                            user && <div className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom z-[999]" data-tip={user.displayName}>
+                                {
+                                    user && <div className="w-full rounded-full">
+                                        <img alt="Profile" src={user?.photoURL} />
+                                    </div>
+                                }
                             </div>
-                        </div>
+                        }
 
                         {
-                            // user && <div className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom z-[999]" data-tip={user.displayName}>
-                            //     {
-                            //         user && <div className="w-full rounded-full">
-                            //             <img alt="Profile" src={user?.photoURL} />
-                            //         </div>
-                            //     }
-                            // </div>
-                        }
-                        <Link to={'/login'}>
-                            <button className="btn btn-outline">Login</button>
-                        </Link>
-                        {
-                            // user ?
-                            //     <button onClick={handleSignOut} className="btn lg:block hidden">Log Out</button>
-                            //     :
-                            //     <Link to="/login">
-                            //         <button className="btn btn-outline">Login</button>
-                            //     </Link>
+                            user ?
+                                <button onClick={handleSignOut} className="btn lg:block hidden">Log Out</button>
+                                :
+                                <Link to="/login">
+                                    <button className="btn btn-outline">Login</button>
+                                </Link>
 
                         }
                     </div>
@@ -76,12 +78,9 @@ const Navbar = () => {
                             <button className="btn">Login</button>
                         </Link>
                         {
-                            // user ?
-                            //     <button onClick={handleSignOut} className="btn">Log Out</button>
-                            //     :
-                            //     <Link to="/login">
-                            //         <button className="btn">Login</button>
-                            //     </Link>
+                            user ? <button onClick={handleSignOut} className="btn">Log Out</button> : <Link to="/login">
+                                <button className="btn">Login</button>
+                            </Link>
                         }
                     </ul>
                 </div>
