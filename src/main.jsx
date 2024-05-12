@@ -15,6 +15,7 @@ import JobDetails from './JobDetails/JobDetails.jsx';
 import UpdateJobs from './UpdateJobs/UpdateJobs.jsx';
 import Login from './Login/Login.jsx';
 import SignUp from './SignUp/SignUp.jsx';
+import PrivetRouter from './PrivetRouter/PrivetRouter.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addJobs',
-        element: <AddJobs></AddJobs>
+        element: <PrivetRouter><AddJobs></AddJobs></PrivetRouter>
       },
       {
         path: '/myJobs',
@@ -48,11 +49,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/jobDetails',
-        element: <JobDetails></JobDetails>
+        element: <PrivetRouter><JobDetails></JobDetails></PrivetRouter>
       },
       {
         path: '/updateJobs',
-        element: <UpdateJobs></UpdateJobs>
+        element: <PrivetRouter><UpdateJobs></UpdateJobs></PrivetRouter>
       },
       {
         path: '/login',
