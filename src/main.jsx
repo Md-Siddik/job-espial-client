@@ -25,15 +25,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/allJobs')
       },
       {
         path: '/allJobs',
-        element: <AllJobs></AllJobs>
+        element: <AllJobs></AllJobs>,
+        loader: () => fetch('http://localhost:5000/allJobs')
       },
       {
         path: '/appliedJobs',
-        element: <AppliedJobs></AppliedJobs>
+        element: <PrivetRouter><AppliedJobs></AppliedJobs></PrivetRouter>
       },
       {
         path: '/addJobs',
@@ -48,8 +50,9 @@ const router = createBrowserRouter([
         element: <Blogs></Blogs>
       },
       {
-        path: '/jobDetails',
-        element: <PrivetRouter><JobDetails></JobDetails></PrivetRouter>
+        path: '/jobDetails/:id',
+        element: <PrivetRouter><JobDetails></JobDetails></PrivetRouter>,
+        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
       },
       {
         path: '/updateJobs',

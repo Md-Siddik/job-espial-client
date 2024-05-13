@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({job}) => {
+    const { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = job;
     return (
         <div>
             <div className="container mx-auto">
@@ -10,25 +11,24 @@ const Card = () => {
                     </figure>
                     <div className="card-body">
                         <div className="w-full text-left">
-                            <h2 className="card-title text-2xl pb-4 flex items-start">Graphic Designer</h2>
-                            <p>Posted By : Md Mahabub</p>
-                            <p className="py-2">Job Category : <span className="bg-green-500 text-white px-2 rounded-xl">Remote Job</span></p>
+                            <h2 className="card-title text-2xl pb-4 flex items-start">{job_title}</h2>
+                            <p>Posted By : {user_name}</p>
+                            <p className="py-2">Job Category : <span className="bg-green-500 text-white px-2 rounded-xl">{job_category}</span></p>
                             <div className="w-full flex justify-between text-lg py-2">
-                                <span>Posting Date</span>:<span>2024-05-04</span>
+                                <span>Posting Date</span>:<span>{post_date}</span>
                             </div>
                             <div className="w-full flex justify-between text-lg py-2">
-                                <span>Application Deadline</span>:<span className="border-b-[1px] border-red-500 text-red-500">2024-06-04</span>
+                                <span>Application Deadline</span>:<span className="border-b-[1px] border-red-500 text-red-500">{application_deadline}</span>
                             </div>
                         </div>
                         <div className="text-left">
-                            <p>Applicants Number : 06</p>
+                            <p>Applicants Number : {applicants_number}</p>
                         </div>
                         <div className="w-full text-xl font-bold">
-                            <span>Salary $50,000-$70,000</span>
+                            <span>Salary : {salary_range}$</span>
                         </div>
                         <div className="flex m-auto gap-14 text-xl font-bold py-2">
-                            <Link>
-                                {/* <Link to={`/artCraft/${item._id}`}> */}
+                            <Link to={`/allJobs/${job._id}`}>
                                 <button className="btn text-lg">View Details</button>
                             </Link>
                         </div>

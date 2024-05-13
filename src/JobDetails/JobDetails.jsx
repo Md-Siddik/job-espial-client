@@ -1,6 +1,49 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const JobDetails = () => {
+
+    const { user } = useContext(AuthContext);
+    console.log(user);
+
+    // const handleAppliedJobs = e => {
+    //     e.preventDefault();
+
+    //     const form = e.target;
+
+    //     const picture = form.picture.value;
+    //     const job_title = form.job_title.value;
+    //     const user_name = user?.displayName;
+    //     const user_email = user?.email;
+    //     const job_category = form.job_category.value;
+    //     const salary_range = form.salary_range.value;
+    //     const job_description = form.job_description.value;
+    //     const post_date = form.post_date.value;
+    //     const application_deadline = form.application_deadline.value;
+    //     const applicants_number = form.applicants_number.value
+
+    //     const newJobs = {picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number}
+
+    //     fetch('http://localhost:5000/allJobs', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(newJobs)
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data => {
+    //         Swal.fire({
+    //             title: 'Success!',
+    //             text: 'Job Added Successfully',
+    //             icon: 'success',
+    //             confirmButtonText: 'Great'
+    //         })
+        
+    //     })
+    // }
+
     return (
         <div>
             <div className="container m-auto">
@@ -31,7 +74,33 @@ const JobDetails = () => {
                                 <h1 className="text-4xl font-bold py-4">$80,000 - $100,000</h1>
                             </div>
                             <div>
-                                <button className="btn text-xl">Apply</button>
+                                {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                                <button className="btn text-xl" onClick={() => document.getElementById('my_modal_3').showModal()}>Apply</button>
+                                <dialog id="my_modal_3" className="modal">
+                                    <div className="modal-box">
+                                        <form method="dialog">
+                                            {/* if there is a button in form, it will close the modal */}
+                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                        </form>
+                                        <form>
+                                            <div className="form-control pb-2">
+                                                <label className="p-2">User Name</label>
+                                                <input type="text" disabled="disabled" defaultValue={user?.displayName} name="user_Name" placeholder="User_Name" className="border-[1px] border-gray-500 p-[12px] rounded-lg" />
+                                            </div>
+                                            <div className="form-control pb-2">
+                                                <label className="p-2">Email</label>
+                                                <input type="email" disabled="disabled" defaultValue={user?.email} name="email" placeholder="User_Email" className="border-[1px] border-gray-500 p-[12px] rounded-lg" />
+                                            </div>
+                                            <div className="form-control pb-2">
+                                                <label className="p-2">Resume Link</label>
+                                                <input type="text" required name="resume_link" placeholder="Resume_Link" className="input input-bordered border-gray-500" />
+                                            </div>
+                                            <div className="flex justify-center">
+                                                <button className="btn btn-xl text-xl my-6">Submit Application</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </dialog>
                             </div>
                         </div>
                     </div>

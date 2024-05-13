@@ -1,8 +1,10 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Card from "../Cards/Card";
+import { useLoaderData } from 'react-router-dom';
 
 const JobTabs = () => {
+    const allJobs = useLoaderData();
     return (
         <div className='container mx-auto'>
             <Tabs>
@@ -16,7 +18,9 @@ const JobTabs = () => {
 
                 <div className='py-14'>
                     <TabPanel>
-                        <Card></Card>
+                        {
+                            allJobs.map(job => <Card key={job._id} job={job}></Card>)
+                        }
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 2</h2>

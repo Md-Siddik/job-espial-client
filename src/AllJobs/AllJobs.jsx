@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllJobs = () => {
+
+    const allJobs = useLoaderData();
+    console.log(allJobs)
+
     return (
         <div>
             <div className="py-10">
@@ -21,17 +25,6 @@ const AllJobs = () => {
                     <th>Job Posting Date</th>
                     <th>Application Deadline</th>
                     <th>Salary Range</th>
-                </tr>
-                <tr>
-                    <td>Software Engineer</td>
-                    <td>2024-05-11</td>
-                    <td>2024-06-11</td>
-                    <td>$80,000 - $100,000</td>
-                    <td>
-                        <Link to={'/jobDetails'}>
-                            <button className="btn">View Details</button>
-                        </Link>
-                    </td>
                 </tr>
                 <tr>
                     <td>Software Engineer</td>
