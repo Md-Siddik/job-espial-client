@@ -9,7 +9,6 @@ const JobDetails = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const allJobs = useLoaderData();
-    // const jobDetails = allJobs?.find(job => job._id === id);
 
     const { _id, picture, job_title, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = allJobs;
 
@@ -23,40 +22,115 @@ const JobDetails = () => {
         const resume_link = form.resume_link.value
 
         const applicantDetails = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number: parseInt(applicants_number) + 1, resume_link }
+        console.log(user_name, user.displayName)
+
+        if (user_name != user.displayName) {
+            const currentDate = new Date(Date.now());
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth() + 1;
+            const day = currentDate.getDate();
+            const currentTime = [month, day, year];
+            const deadline = application_deadline;
+            const sliceDate = deadline.split('/');
+            let applyDeadline = [];
+            sliceDate.map(dates => applyDeadline.push(parseInt(dates)));
+
+            if (currentTime[2] <= applyDeadline[2] && currentTime[0] <= applyDeadline[0]) {
+                if (currentTime[0] === applyDeadline[0]) {
+                    if (currentTime[1] <= applyDeadline[1]) {
+                        fetch(`http://localhost:5000/allJobs/${_id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(applicantDetails)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.modifiedCount > 0) {
+                                    Swal.fire({
+                                        title: 'Success!',
+                                        text: 'Applied Successfully',
+                                        icon: 'success',
+                                        confirmButtonText: 'Great'
+                                    })
+                                    navigate('/');
+                                }
+                            })
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Oppsss...!',
+                            text: 'Application deadline is over',
+                            icon: 'Error',
+                            confirmButtonText: 'Back'
+                        })
+                        navigate('/');
+                    }
+                }
+                else {
+                    fetch(`http://localhost:5000/allJobs/${_id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(applicantDetails)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.modifiedCount > 0) {
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Applied Successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Great'
+                                })
+                                navigate('/');
+                            }
+                        })
+                }
+            }
+            else {
+                Swal.fire({
+                    title: 'Oppsss...!',
+                    text: 'Application deadline is over',
+                    icon: 'Error',
+                    confirmButtonText: 'Back'
+                })
+                navigate('/');
+            }
+
+            fetch(`http://localhost:5000/allJobs/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(applicantDetails)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount > 0) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Applied Successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Great'
+                        })
+                        navigate('/');
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'Faild!',
+                text: 'This is your job.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+            navigate('/');
+        }
 
 
-        const currentDate = new Date(Date.now());
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth() + 1;
-        const day = currentDate.getDate();
-        const currentTime = {year:year,month:month,day:day};
-        console.log(currentTime)
-
-
-        // db.inventory.updateOne(
-        //     { _id: ObjectId("product_id") }, // Filter by the product's ObjectId or any other unique identifier
-        //     { $inc: { quantity: 5 } }        // Increment the quantity field by 5 units
-        //  );
-
-        // fetch(`http://localhost:5000/allJobs/${_id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(applicantDetails)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount > 0) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Applied Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Great'
-        //             })
-        //             navigate('/')
-        //         }
-        //     })
     }
 
     return (
