@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
+import JobsData from "../JobsData/JobsData";
 
 const AllJobs = () => {
 
     const allJobs = useLoaderData();
-    console.log(allJobs)
 
     return (
         <div>
@@ -26,17 +26,9 @@ const AllJobs = () => {
                     <th>Application Deadline</th>
                     <th>Salary Range</th>
                 </tr>
-                <tr>
-                    <td>Software Engineer</td>
-                    <td>2024-05-11</td>
-                    <td>2024-06-11</td>
-                    <td>$80,000 - $100,000</td>
-                    <td>
-                        <Link to={'/jobDetails'}>
-                            <button className="btn">View Details</button>
-                        </Link>
-                    </td>
-                </tr>
+                {
+                    allJobs.map(job => <JobsData key={job._id} job={job}></JobsData>)
+                }
             </table>
         </div>
     );

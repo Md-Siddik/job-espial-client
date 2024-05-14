@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 const Card = ({job}) => {
-    const { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = job;
+    const { _id, picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = job;
+    console.log(_id)
     return (
         <div>
             <div className="container mx-auto">
@@ -28,7 +29,7 @@ const Card = ({job}) => {
                             <span>Salary : {salary_range}$</span>
                         </div>
                         <div className="flex m-auto gap-14 text-xl font-bold py-2">
-                            <Link to={`/allJobs/${job._id}`}>
+                            <Link to={`/jobDetails/${_id}`}>
                                 <button className="btn text-lg">View Details</button>
                             </Link>
                         </div>

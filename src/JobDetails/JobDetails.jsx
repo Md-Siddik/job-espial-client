@@ -1,54 +1,69 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user);
+    const navigate = useNavigate();
+    const allJobs = useLoaderData();
+    // const jobDetails = allJobs?.find(job => job._id === id);
 
-    // const handleAppliedJobs = e => {
-    //     e.preventDefault();
+    const { _id, picture, job_title, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = allJobs;
 
-    //     const form = e.target;
+    const handleAppliedJobs = e => {
+        e.preventDefault();
 
-    //     const picture = form.picture.value;
-    //     const job_title = form.job_title.value;
-    //     const user_name = user?.displayName;
-    //     const user_email = user?.email;
-    //     const job_category = form.job_category.value;
-    //     const salary_range = form.salary_range.value;
-    //     const job_description = form.job_description.value;
-    //     const post_date = form.post_date.value;
-    //     const application_deadline = form.application_deadline.value;
-    //     const applicants_number = form.applicants_number.value
+        const form = e.target;
 
-    //     const newJobs = {picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number}
+        const user_name = user?.displayName;
+        const user_email = user?.email;
+        const resume_link = form.resume_link.value
 
-    //     fetch('http://localhost:5000/allJobs', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(newJobs)
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data => {
-    //         Swal.fire({
-    //             title: 'Success!',
-    //             text: 'Job Added Successfully',
-    //             icon: 'success',
-    //             confirmButtonText: 'Great'
-    //         })
-        
-    //     })
-    // }
+        const applicantDetails = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number: parseInt(applicants_number) + 1, resume_link }
+
+
+        const currentDate = new Date(Date.now());
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1;
+        const day = currentDate.getDate();
+        const currentTime = {year:year,month:month,day:day};
+        console.log(currentTime)
+
+
+        // db.inventory.updateOne(
+        //     { _id: ObjectId("product_id") }, // Filter by the product's ObjectId or any other unique identifier
+        //     { $inc: { quantity: 5 } }        // Increment the quantity field by 5 units
+        //  );
+
+        // fetch(`http://localhost:5000/allJobs/${_id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(applicantDetails)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.modifiedCount > 0) {
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Applied Successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'Great'
+        //             })
+        //             navigate('/')
+        //         }
+        //     })
+    }
 
     return (
         <div>
             <div className="container m-auto">
                 <Helmet>
-                    <title>Techno-Real-Estate | Details</title>
+                    <title>Job-Espial | Details</title>
                 </Helmet>
 
                 <div className="flex border-[1px] my-24">
@@ -59,19 +74,19 @@ const JobDetails = () => {
                     </div>
                     <div className="w-[55%]">
                         <div className="p-8">
-                            <h1 className="text-4xl font-bold">Software Engineer</h1>
+                            <h1 className="text-4xl font-bold">{job_title}</h1>
                             <div className="py-4 text-xl">
-                                <p>Seeking skilled software engineer to join development team. Apply by June 11th. This post have awesome salary range and so many facilities. Apply if you are eligibal.</p>
+                                <p>{job_description}</p>
                             </div>
                             <div className="flex gap-16">
-                                <p className="py-4 text-xl">Posting date : 2024-05-11 </p>
-                                <p className="py-4 text-xl">Application deadline : <span className="border-b-[1px] border-red-500 text-red-500">2024-06-11</span> </p>
+                                <p className="py-4 text-xl">Posting date : {post_date} </p>
+                                <p className="py-4 text-xl">Application deadline : <span className="border-b-[1px] border-red-500 text-red-500">{application_deadline}</span> </p>
                             </div>
                             <div className="flex gap-2 py-4">
                                 <p>Job Applicants Number : <span className="py-4 text-xl bg-green-500 dark:text-white px-6 rounded-full">50</span> </p>
                             </div>
                             <div>
-                                <h1 className="text-4xl font-bold py-4">$80,000 - $100,000</h1>
+                                <h1 className="text-4xl font-bold py-4">{salary_range}$</h1>
                             </div>
                             <div>
                                 {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -82,7 +97,7 @@ const JobDetails = () => {
                                             {/* if there is a button in form, it will close the modal */}
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                         </form>
-                                        <form>
+                                        <form onSubmit={handleAppliedJobs}>
                                             <div className="form-control pb-2">
                                                 <label className="p-2">User Name</label>
                                                 <input type="text" disabled="disabled" defaultValue={user?.displayName} name="user_Name" placeholder="User_Name" className="border-[1px] border-gray-500 p-[12px] rounded-lg" />

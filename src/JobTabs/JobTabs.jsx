@@ -18,9 +18,11 @@ const JobTabs = () => {
 
                 <div className='py-14'>
                     <TabPanel>
-                        {
-                            allJobs.map(job => <Card key={job._id} job={job}></Card>)
-                        }
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                            {
+                                allJobs.map(job => <Card key={job._id} job={job}></Card>)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Any content 2</h2>
