@@ -10,7 +10,7 @@ const JobsData = ({job}) => {
             <td>{salary_range}$</td>
             <td>
                 <Link to={`/jobDetails/${job._id}`}>
-                    <button className="btn">View Details</button>
+                    <button className="btn my-2">View Details</button>
                 </Link>
             </td>
         </tr>

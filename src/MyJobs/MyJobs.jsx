@@ -1,9 +1,16 @@
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import MyJob from "../MyJob/MyJob";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyJobs = () => {
+    const allJobs = useLoaderData();
+    const {user} = useContext(AuthContext);
+    const myJobs = allJobs.filter(job => job.user_name === user.displayName);
+    console.log(user);
 
     return (
-        <div>
+        <div className="container mx-auto">
             <table className="w-full my-20">
                 <tr className="text-left text-xl">
                     <th>Job Title</th>
@@ -11,36 +18,9 @@ const MyJobs = () => {
                     <th>Application Deadline</th>
                     <th>Salary Range</th>
                 </tr>
-                <tr>
-                    <td>Software Engineer</td>
-                    <td>2024-05-11</td>
-                    <td>2024-06-11</td>
-                    <td>$80,000 - $100,000</td>
-                    <td className="flex gap-2 py-2">
-                        <Link to={'/jobDetails'}>
-                            <button className="btn btn-accent">View Details</button>
-                        </Link>
-                        <Link to={'/updateJobs'}>
-                            <button className="btn btn-info">Update</button>
-                        </Link>
-                        <button className="btn btn-error">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Software Engineer</td>
-                    <td>2024-05-11</td>
-                    <td>2024-06-11</td>
-                    <td>$80,000 - $100,000</td>
-                    <td className="flex gap-2">
-                        <Link to={'/jobDetails'}>
-                            <button className="btn btn-accent">View Details</button>
-                        </Link>
-                        <Link to={'/updateJobs'}>
-                            <button className="btn btn-info">Update</button>
-                        </Link>
-                        <button className="btn btn-error">Delete</button>
-                    </td>
-                </tr>
+                {
+                    myJobs.map(job => <MyJob key={job._id} job={job}></MyJob>)
+                }
             </table>
         </div>
     );

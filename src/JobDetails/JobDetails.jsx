@@ -1,30 +1,31 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const JobDetails = () => {
 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const allJobs = useLoaderData();
+    const singleJob = useLoaderData();
 
-    const { _id, picture, job_title, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = allJobs;
+    const { _id, picture, user_name, user_email, job_title, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = singleJob;
 
     const handleAppliedJobs = e => {
         e.preventDefault();
 
         const form = e.target;
 
-        const user_name = user?.displayName;
-        const user_email = user?.email;
-        const resume_link = form.resume_link.value
+        const applicants_name = user?.displayName;
+        const resume_link = form.resume_link.value;
 
-        const applicantDetails = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number: parseInt(applicants_number) + 1, resume_link }
+
+
+        const applicantDetails = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number: parseInt(applicants_number) + 1, resume_link, applicants_email:user.email, applicants_name }
         console.log(user_name, user.displayName)
 
-        if (user_name != user.displayName) {
+        if (user_name != user?.displayName) {
             const currentDate = new Date(Date.now());
             const year = currentDate.getFullYear();
             const month = currentDate.getMonth() + 1;
@@ -157,7 +158,7 @@ const JobDetails = () => {
                                 <p className="py-4 text-xl">Application deadline : <span className="border-b-[1px] border-red-500 text-red-500">{application_deadline}</span> </p>
                             </div>
                             <div className="flex gap-2 py-4">
-                                <p>Job Applicants Number : <span className="py-4 text-xl bg-green-500 dark:text-white px-6 rounded-full">50</span> </p>
+                                <p>Job Applicants Number : <span className="py-4 text-xl bg-green-500 dark:text-white px-6 rounded-full">{applicants_number}</span> </p>
                             </div>
                             <div>
                                 <h1 className="text-4xl font-bold py-4">{salary_range}$</h1>

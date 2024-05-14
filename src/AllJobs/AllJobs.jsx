@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import JobsData from "../JobsData/JobsData";
 
 const AllJobs = () => {
@@ -6,7 +6,7 @@ const AllJobs = () => {
     const allJobs = useLoaderData();
 
     return (
-        <div>
+        <div className="container mx-auto">
             <div className="py-10">
                 <div className="join flex justify-center">
                     <div>

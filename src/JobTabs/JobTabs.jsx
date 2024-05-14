@@ -5,6 +5,10 @@ import { useLoaderData } from 'react-router-dom';
 
 const JobTabs = () => {
     const allJobs = useLoaderData();
+    const onSite = allJobs.filter(job => job.job_category === 'On-Site');
+    const remote = allJobs.filter(job => job.job_category === 'Remote');
+    const hybrid = allJobs.filter(job => job.job_category === 'Hybrid');
+    const partTime = allJobs.filter(job => job.job_category === 'Part-Time');
     return (
         <div className='container mx-auto'>
             <Tabs>
@@ -20,21 +24,37 @@ const JobTabs = () => {
                     <TabPanel>
                         <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
                             {
-                                allJobs.map(job => <Card key={job._id} job={job}></Card>)
+                                onSite.map(job => <Card key={job._id} job={job}></Card>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                            {
+                                remote.map(job => <Card key={job._id} job={job}></Card>)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 3</h2>
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                            {
+                                hybrid.map(job => <Card key={job._id} job={job}></Card>)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 4</h2>
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                            {
+                                partTime.map(job => <Card key={job._id} job={job}></Card>)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>All Jobs</h2>
+                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+                            {
+                                allJobs.map(job => <Card key={job._id} job={job}></Card>)
+                            }
+                        </div>
                     </TabPanel>
                 </div>
             </Tabs>
