@@ -67,12 +67,12 @@ const Blogs = () => {
                         <a rel="noopener noreferrer" href="#" className="text-3xl font-bold hover:underline">Job Espial</a>
                         <p className="mt-2">Welcome to JobBoard, your go-to platform for finding the perfect job. Our website allows employers to post job listings and job seekers to search for and apply to positions seamlessly. We cater to various job types to suit different work preferences and needs.</p>
                         <h1 className="text-2xl text-bold">Features</h1>
-                        <ul>
+                        <ul className="list-decimal">
                             <li>Job Listings: Employers can post detailed job listings.</li>
                             <li>Job Search: Job seekers can search for jobs using various filters.</li>
                             <li>Job Application: Users can apply to jobs directly through the website.</li>
                             <li>Job Types:
-                                <ul>
+                                <ul className="list-disc">
                                     <li>On-Site Job</li>
                                     <li>Remote Job</li>
                                     <li>Hybrid Job</li>
