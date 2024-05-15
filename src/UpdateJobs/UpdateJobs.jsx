@@ -83,7 +83,7 @@ const UpdateJobs = () => {
                             <div className="form-control pb-2">
                                 <label className="p-2">Job Category</label>
                                 {/* <input type="text" required name="job_category" placeholder="Job_Category" className="input input-bordered border-gray-500" /> */}
-                                <select name="job_category" className="input input-bordered border-gray-500">
+                                <select name="job_category" defaultValue={job_category} className="input input-bordered border-gray-500">
                                     <option value="On-Site">On-Site</option>
                                     <option value="Remote">Remote</option>
                                     <option value="Hybrid">Hybrid</option>
@@ -94,19 +94,19 @@ const UpdateJobs = () => {
                         <div className="lg:w-[450px]">
                             <div className="form-control pb-2">
                                 <label className="p-2">Salary Range</label>
-                                <input type="text" required name="salary_range" placeholder="Salary_Range" className="input input-bordered border-gray-500" />
+                                <input type="text" required name="salary_range" defaultValue={salary_range} placeholder="Salary_Range" className="input input-bordered border-gray-500" />
                             </div>
                             <div className="form-control pb-2">
                                 <label className="p-2">Job Description</label>
-                                <input type="text" required name="job_description" placeholder="Job_Description" className="input input-bordered border-gray-500" />
+                                <input type="text" required name="job_description" defaultValue={job_description} placeholder="Job_Description" className="input input-bordered border-gray-500" />
                             </div>
                             <div className="form-control pb-2">
                                 <label className="p-2">Post Date</label>
-                                <DatePicker name="post_date" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
+                                <DatePicker name="post_date" defaultValue={post_date} className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
                             </div>
                             <div className="form-control pb-2">
                                 <label className="p-2">Application Deadline</label>
-                                <DatePicker name="application_deadline" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
+                                <DatePicker name="application_deadline" defaultValue={application_deadline} className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
                             </div>
                         </div>
                     </div>

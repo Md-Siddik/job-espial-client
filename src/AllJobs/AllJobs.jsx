@@ -1,9 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import JobsData from "../JobsData/JobsData";
+import { useState } from "react";
 
 const AllJobs = () => {
 
     const allJobs = useLoaderData();
+    const [searchJob, setSearchJob] = useState();
+
+    const handleSearch = e => {
+        e.preventDefault();
+    }
 
     return (
         <div className="container mx-auto">
