@@ -44,7 +44,7 @@ const MyJob = ({job}) => {
                 <Link to={`/jobDetails/${_id}`}>
                     <button className="btn btn-accent">View Details</button>
                 </Link>
-                <Link to={'/updateJobs'}>
+                <Link to={`/updateJobs/${_id}`}>
                     <button className="btn btn-info">Update</button>
                 </Link>
                 <button onClick={() => handleDelete(_id)} className="btn btn-error text-xl">Delete</button>

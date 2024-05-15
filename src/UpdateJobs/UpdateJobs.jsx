@@ -1,12 +1,22 @@
-import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateJobs = () => {
 
+    const [startDate, setStartDate] = useState(new Date());
     const allJobs = useLoaderData();
     const { user } = useContext(AuthContext);
+
+    // const [getJob, setGetJob] = useState();
+
+    // allJobs.map(job => setGetJob(job));
+    const { _id, picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline } = allJobs;
+
+    console.log(allJobs)
 
     const handleUpdate = e => {
         e.preventDefault();
@@ -26,7 +36,7 @@ const UpdateJobs = () => {
 
         const newJobs = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number }
 
-        fetch(`http://localhost:5000/allJobs/update/${_id}`, {
+        fetch(`http://localhost:5000/allJobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -51,40 +61,52 @@ const UpdateJobs = () => {
         <div>
             <div className="lg:w-[1000px] m-auto pb-4 mt-16 mb-16 border-2 border-gray-500 rounded-xl">
                 <h1 className="text-3xl mt-10 my-6 text-center">Update Jobs</h1>
-                <form className="md:w-full mx-auto p-8">
-                    <div className="lg:flex lg:gap-6">
+                <form onSubmit={handleUpdate} className="md:w-full mx-auto p-8">
+                <div className="lg:flex lg:gap-6">
                         <div className="lg:w-[450px]">
-                            <div className="form-control pb-6">
-                                <input type="text" required name="picture" placeholder="Picture URL" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Picture URL</label>
+                                <input type="text" required name="picture" defaultValue={picture} placeholder="Picture URL" className="input input-bordered border-gray-500" />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="text" required name="Job Title" placeholder="job_title" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Job Title</label>
+                                <input type="text" required name="job_title" defaultValue={job_title} placeholder="Job_Title" className="input input-bordered border-gray-500" />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="text" name="user_Name" placeholder="User_Name" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">User Name</label>
+                                <input type="text" disabled="disabled" defaultValue={user?.displayName} name="user_Name" placeholder="User_Name" className="border-[1px] border-gray-500 p-[12px] rounded-lg" />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="email" required name="email" placeholder="User_Email" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Email</label>
+                                <input type="email" disabled="disabled" defaultValue={user?.email} name="email" placeholder="User_Email" className="border-[1px] border-gray-500 p-[12px] rounded-lg" />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="text" required name="job_category" placeholder="Job_Category" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Job Category</label>
+                                {/* <input type="text" required name="job_category" placeholder="Job_Category" className="input input-bordered border-gray-500" /> */}
+                                <select name="job_category" className="input input-bordered border-gray-500">
+                                    <option value="On-Site">On-Site</option>
+                                    <option value="Remote">Remote</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                    <option value="Part-Time">Part-Time</option>
+                                </select>
                             </div>
                         </div>
                         <div className="lg:w-[450px]">
-                            <div className="form-control pb-6">
+                            <div className="form-control pb-2">
+                                <label className="p-2">Salary Range</label>
                                 <input type="text" required name="salary_range" placeholder="Salary_Range" className="input input-bordered border-gray-500" />
                             </div>
-                            <div className="form-control pb-6">
+                            <div className="form-control pb-2">
+                                <label className="p-2">Job Description</label>
                                 <input type="text" required name="job_description" placeholder="Job_Description" className="input input-bordered border-gray-500" />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="text" required name="post_date" placeholder="Job_Post_Date" className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Post Date</label>
+                                <DatePicker name="post_date" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
                             </div>
-                            <div className="form-control pb-6">
-                                <input type="text" required name="application_deadline" placeholder="Application_Deadline" className="input input-bordered border-gray-500" />
-                            </div>
-                            <div className="form-control pb-6">
-                                <input type="text" required name="applicants_number" placeholder="Job_Applicants_Number" defaultValue={0} className="input input-bordered border-gray-500" />
+                            <div className="form-control pb-2">
+                                <label className="p-2">Application Deadline</label>
+                                <DatePicker name="application_deadline" className="w-full p-3 border-[1px] border-gray-500 bg-transparent rounded-lg" selected={startDate} onChange={(date) => setStartDate(date)} />
                             </div>
                         </div>
                     </div>

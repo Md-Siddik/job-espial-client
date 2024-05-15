@@ -58,9 +58,9 @@ const router = createBrowserRouter([
         // loader: () => fetch(`http://localhost:5000/allJobs`)
       },
       {
-        path: '/updateJobs',
+        path: '/updateJobs/:id',
         element: <PrivetRouter><UpdateJobs></UpdateJobs></PrivetRouter>,
-        loader: () => fetch(`http://localhost:5000/allJobs`)
+        loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
       },
       {
         path: '/login',

@@ -7,7 +7,6 @@ const MyJobs = () => {
     const allJobs = useLoaderData();
     const {user} = useContext(AuthContext);
     const myJobs = allJobs.filter(job => job.user_name === user.displayName);
-    console.log(user);
 
     return (
         <div className="container mx-auto">
