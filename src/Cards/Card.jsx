@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({job}) => {
     const { _id, picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = job;
-    console.log(_id)
+
     return (
         <div>
             <div className="container mx-auto">
