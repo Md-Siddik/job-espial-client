@@ -33,7 +33,7 @@ const AppliedJobs = () => {
     }
 
     return (
-        <div>
+        <div className="container mx-auto">
             <div className="flex justify-center">
                 <details className="dropdown">
                     <summary className="m-1 btn">Job Category</summary>

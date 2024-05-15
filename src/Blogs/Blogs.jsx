@@ -56,6 +56,35 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="py-4">
+                <div className="container w-full px-10 py-6 pb-10 mx-auto rounded-lg shadow-sm border">
+                    <div className="flex items-center justify-between">
+                        <span className="text-sm dark:text-gray-600">Jun 1, 2020</span>
+                        <a rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded dark:bg-default-600 dark:text-gray-50">Javascript</a>
+                    </div>
+                    <div className="mt-3">
+                        <a rel="noopener noreferrer" href="#" className="text-3xl font-bold hover:underline">Job Espial</a>
+                        <p className="mt-2">Welcome to JobBoard, your go-to platform for finding the perfect job. Our website allows employers to post job listings and job seekers to search for and apply to positions seamlessly. We cater to various job types to suit different work preferences and needs.</p>
+                        <h1 className="text-2xl text-bold">Features</h1>
+                        <ul>
+                            <li>Job Listings: Employers can post detailed job listings.</li>
+                            <li>Job Search: Job seekers can search for jobs using various filters.</li>
+                            <li>Job Application: Users can apply to jobs directly through the website.</li>
+                            <li>Job Types:
+                                <ul>
+                                    <li>On-Site Job</li>
+                                    <li>Remote Job</li>
+                                    <li>Hybrid Job</li>
+                                    <li>Part-Time Job</li>
+                                </ul>
+                            </li>
+                            <li>Blogs: Read articles and tips about job searching, career development, and industry insights.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

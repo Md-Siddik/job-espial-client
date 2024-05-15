@@ -2,7 +2,6 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Card from "../Cards/Card";
 import { useEffect, useState } from 'react';
-import { motion } from "framer-motion"
 
 const JobTabs = () => {
 
