@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slide1 {
+    background-image: url('../src/assets/slide1.avif');
+}
+.slide2 {
+    background-image: url('../src/assets/slide2.jpg');
+}
+.slide3 {
+    background-image: url('../src/assets/slide3.jpg');
+}
+.slide4 {
+    background-image: url('../src/assets/slide4.jpg');
+}
+.bg_properties {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

@@ -39,7 +39,7 @@ const JobDetails = () => {
             if (currentTime[2] <= applyDeadline[2] && currentTime[0] <= applyDeadline[0]) {
                 if (currentTime[0] === applyDeadline[0]) {
                     if (currentTime[1] <= applyDeadline[1]) {
-                        fetch(`http://localhost:5000/allJobs/${_id}`, {
+                        fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
                             method: 'PATCH',
                             headers: {
                                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const JobDetails = () => {
                     }
                 }
                 else {
-                    fetch(`http://localhost:5000/allJobs/${_id}`, {
+                    fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
                         method: 'PATCH',
                         headers: {
                             'content-type': 'application/json'
@@ -101,7 +101,7 @@ const JobDetails = () => {
                 navigate('/');
             }
 
-            fetch(`http://localhost:5000/allJobs/${_id}`, {
+            fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'

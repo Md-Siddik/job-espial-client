@@ -36,7 +36,7 @@ const UpdateJobs = () => {
 
         const newJobs = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number }
 
-        fetch(`http://localhost:5000/allJobs/${_id}`, {
+        fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
