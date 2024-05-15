@@ -39,7 +39,7 @@ const JobDetails = () => {
             if (currentTime[2] <= applyDeadline[2] && currentTime[0] <= applyDeadline[0]) {
                 if (currentTime[0] === applyDeadline[0]) {
                     if (currentTime[1] <= applyDeadline[1]) {
-                        fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
+                        fetch(`https://job-espial-server.vercel.app/allJobs/${_id}`, {
                             method: 'PATCH',
                             headers: {
                                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const JobDetails = () => {
                     }
                 }
                 else {
-                    fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
+                    fetch(`https://job-espial-server.vercel.app/allJobs/${_id}`, {
                         method: 'PATCH',
                         headers: {
                             'content-type': 'application/json'
@@ -101,7 +101,7 @@ const JobDetails = () => {
                 navigate('/');
             }
 
-            fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
+            fetch(`https://job-espial-server.vercel.app/allJobs/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'
@@ -144,7 +144,7 @@ const JobDetails = () => {
                 <div className="flex border-[1px] my-24">
                     <div className="w-[45%]">
                         <div className="w-full h-full flex items-center justify-center">
-                            <img className="w-full h-fit" src="" alt="Avatar Tailwind CSS Component" />
+                            <img className="w-full h-fit" src={picture} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
                     <div className="w-[55%]">

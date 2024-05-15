@@ -36,7 +36,7 @@ const UpdateJobs = () => {
 
         const newJobs = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number }
 
-        fetch(`job-espial-server.vercel.app/allJobs/${_id}`, {
+        fetch(`https://job-espial-server.vercel.app/allJobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -45,10 +45,10 @@ const UpdateJobs = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.modifiedCount > 0){
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Job Added Successfully',
+                        text: 'Job Updated Successfully',
                         icon: 'success',
                         confirmButtonText: 'Great'
                     })
@@ -62,7 +62,7 @@ const UpdateJobs = () => {
             <div className="lg:w-[1000px] m-auto pb-4 mt-16 mb-16 border-2 border-gray-500 rounded-xl">
                 <h1 className="text-3xl mt-10 my-6 text-center">Update Jobs</h1>
                 <form onSubmit={handleUpdate} className="md:w-full mx-auto p-8">
-                <div className="lg:flex lg:gap-6">
+                    <div className="lg:flex lg:gap-6">
                         <div className="lg:w-[450px]">
                             <div className="form-control pb-2">
                                 <label className="p-2">Picture URL</label>

@@ -6,7 +6,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const MyJobs = () => {
     const allJobs = useLoaderData();
     const {user} = useContext(AuthContext);
-    const myJobs = allJobs.filter(job => job.user_name === user.displayName);
+    const myJobs = allJobs?.filter(job => job?.user_name === user?.displayName);
 
     return (
         <div className="container mx-auto">

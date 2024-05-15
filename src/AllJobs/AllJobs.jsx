@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import JobsData from "../JobsData/JobsData";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const AllJobs = () => {
 

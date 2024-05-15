@@ -26,7 +26,7 @@ const AddJobs = () => {
 
         const newJobs = { picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number }
 
-        fetch('job-espial-server.vercel.app/allJobs', {
+        fetch('https://job-espial-server.vercel.app/allJobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

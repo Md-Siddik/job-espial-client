@@ -26,17 +26,17 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('job-espial-server.vercel.app/allJobs')
+        loader: () => fetch('https://job-espial-server.vercel.app/allJobs')
       },
       {
         path: '/allJobs',
         element: <AllJobs></AllJobs>,
-        loader: () => fetch('job-espial-server.vercel.app/allJobs')
+        loader: () => fetch('https://job-espial-server.vercel.app/allJobs')
       },
       {
         path: '/appliedJobs',
         element: <PrivetRouter><AppliedJobs></AppliedJobs></PrivetRouter>,
-        loader: () => fetch(`job-espial-server.vercel.app/allJobs`)
+        loader: () => fetch(`https://job-espial-server.vercel.app/allJobs`)
       },
       {
         path: '/addJobs',
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/myJobs',
-        element: <MyJobs></MyJobs>,
-        loader: () => fetch(`job-espial-server.vercel.app/allJobs`)
+        element: <PrivetRouter><MyJobs></MyJobs></PrivetRouter>,
+        loader: () => fetch(`https://job-espial-server.vercel.app/allJobs`)
       },
       {
         path: '/blogs',
@@ -54,13 +54,13 @@ const router = createBrowserRouter([
       {
         path: '/jobDetails/:id',
         element: <PrivetRouter><JobDetails></JobDetails></PrivetRouter>,
-        loader: ({params}) => fetch(`job-espial-server.vercel.app/allJobs/${params.id}`)
+        loader: ({params}) => fetch(`https://job-espial-server.vercel.app/allJobs/${params.id}`)
         // loader: () => fetch(`job-espial-server.vercel.app/allJobs`)
       },
       {
         path: '/updateJobs/:id',
         element: <PrivetRouter><UpdateJobs></UpdateJobs></PrivetRouter>,
-        loader: ({params}) => fetch(`job-espial-server.vercel.app/allJobs/${params.id}`)
+        loader: ({params}) => fetch(`https://job-espial-server.vercel.app/allJobs/${params.id}`)
       },
       {
         path: '/login',

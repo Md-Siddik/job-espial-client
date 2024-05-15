@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 
-const Card = ({job}) => {
+const Card = ({ job }) => {
+
+    // <motion.div
+    //     initial={{ opacity: 0, scale: 0.5 }}
+    //     animate={{ opacity: 1, scale: 1 }}
+    //     transition={{ duration: 0.5 }}
+    // />
+
     const { _id, picture, job_title, user_name, user_email, job_category, salary_range, job_description, post_date, application_deadline, applicants_number } = job;
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+        >
             <div className="container mx-auto">
                 <div data-aos="zoom-in" className="w-[350px] bg-base-100 border-[1px] border-solid h-full">
                     <figure className="h-[220px] bg-gray-300">
-                        <img src="" alt="image" className="w-full h-full" />
+                        <img src={picture} alt="image" className="w-full h-full" />
                     </figure>
                     <div className="card-body">
                         <div className="w-full text-left">
@@ -36,7 +51,7 @@ const Card = ({job}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

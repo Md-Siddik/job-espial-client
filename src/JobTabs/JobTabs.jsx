@@ -1,11 +1,11 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Card from "../Cards/Card";
-import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion"
 
 const JobTabs = () => {
-    // const allJobs = useLoaderData();
+
     const [allJobs, setAllJobs] = useState([]);
 
     useEffect(() => {
